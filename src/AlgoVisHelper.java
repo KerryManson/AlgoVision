@@ -73,12 +73,12 @@ public class AlgoVisHelper {
         g.drawString(text,centerX-w/2,centerY+h);
     }
 
-    public static void pause(int t ) throws IllegalAccessException {
+    public static void pause(int t ){
         try {
             Thread.sleep(t);
         }
         catch (InterruptedException e){
-            throw new IllegalAccessException("Thead sleep error!");
+            System.out.println("Sleep Error");
         }
     }
 

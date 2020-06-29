@@ -22,8 +22,10 @@ public class AlgoFrame extends JFrame {
         setVisible(true);
     }
 
-    private Object data;
-    public void render(Object data){
+    private Object data1;
+
+    private SelectionSortData data;
+    public void render(SelectionSortData data){
         this.data = data;
         repaint();
     }
@@ -50,6 +52,28 @@ public class AlgoFrame extends JFrame {
             //具体绘制
 
             AlgoVisHelper.SetStrokeColor(g2d,AlgoVisHelper.DeepOrange);
+            int weight =getCavaWidth()/data.arrayLength();
+
+            for (int i=0;i<data.arrayLength();i++){
+                if(i<data.orderedIndex){
+                    AlgoVisHelper.SetStrokeColor(g2d,AlgoVisHelper.Amber);
+                }
+                else if (i == data.currentMinIndex){
+                    AlgoVisHelper.SetStrokeColor(g2d,AlgoVisHelper.DeepOrange);
+                }
+                else if(i == data.currenIndex){
+                    AlgoVisHelper.SetStrokeColor(g2d,AlgoVisHelper.DeepPurple);
+                }
+                else {
+                    AlgoVisHelper.SetStrokeColor(g2d,AlgoVisHelper.Cyan );
+                }
+                AlgoVisHelper.FillRectangle(g2d,i*weight,cavaHeight-data.get(i),weight-1,data.get(i ));
+
+
+            }
+
+
+
 
         }
         @Override
